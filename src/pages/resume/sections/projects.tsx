@@ -14,7 +14,11 @@ const Projects = ({}: TProjectsProps) => {
         {projects.map((project, index) => (
           <div className={cn(index !== projects.length - 1 && 'mb-8')}>
             {project.link ? (
-              <a className="flex gap-4 cursor-pointer" href={project.link}>
+              <a
+                className="flex gap-4 cursor-pointer"
+                href={project.link}
+                target="_blank"
+              >
                 {project.name} <Link2Icon />
               </a>
             ) : (
