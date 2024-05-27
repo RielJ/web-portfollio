@@ -1,0 +1,7 @@
+export * from './header'
+export * from './about'
+export * from './education'
+export * from './experience'
+export * from './certificates'
+export * from './projects'
+export * from './skillset'

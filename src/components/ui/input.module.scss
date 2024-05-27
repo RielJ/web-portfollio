@@ -1,0 +1,31 @@
+.input-label {
+  @apply text-xs font-medium text-slate-500 absolute -translate-y-1/2 top-1/2 left-3 transition-all pointer-events-none;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.input {
+  @apply w-full;
+}
+
+// focused or input is not blank
+input:focus+.input-label,
+input:not([value=''])+.input-label {
+  @apply -translate-y-1/2 text-primary top-0 left-2 px-1;
+}
+
+input:not([value='']),
+input:valid,
+input:focus {
+  @apply border-primary/50;
+}
+
+/* input:invalid { */
+/*   @apply border-red-500; */
+/* } */
+
+.input-div {
+  @apply relative flex flex-col;
+}

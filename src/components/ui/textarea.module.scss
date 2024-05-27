@@ -1,0 +1,31 @@
+.textarea-label {
+  @apply text-xs font-medium text-slate-500 absolute -translate-y-1/2 top-[1.25rem] left-3 transition-all pointer-events-none;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+  pointer-events: none;
+}
+
+.textarea {
+  @apply w-full;
+  resize: none;
+}
+
+// focused or textarea is not blank
+textarea:focus+.textarea-label,
+textarea:valid+.textarea-label {
+  @apply -translate-y-1/2 text-primary top-0 left-2 px-1;
+}
+
+textarea:not([value='']),
+textarea:focus {
+  @apply border-primary/50;
+}
+
+/* textarea:invalid { */
+/*   @apply border-red-500; */
+/* } */
+
+.textarea-div {
+  @apply relative flex flex-col h-full;
+}
