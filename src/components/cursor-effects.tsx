@@ -24,7 +24,7 @@ const CursorEffects = ({}: TCursorEffectsProps) => {
   }, [blobRef])
 
   return (
-    <div>
+    <div className="print:hidden">
       <div
         ref={blobRef}
         className="pointer-events-none absolute left-0 top-0 z-[99] h-10 w-10 rounded-full bg-white mix-blend-difference duration-75 ease-in-out"
