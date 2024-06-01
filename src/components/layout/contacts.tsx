@@ -1,5 +1,4 @@
 import { zodResolver } from '@hookform/resolvers/zod'
-import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 import { z } from 'zod'
 import {
@@ -21,6 +20,7 @@ import {
   LinkedInLogoIcon,
   EnvelopeClosedIcon,
 } from '@radix-ui/react-icons'
+import { useEmailSender } from '@/hooks'
 
 const contactFormSchema = z.object({
   name: z.string().min(2, {
@@ -37,7 +37,7 @@ const contactFormSchema = z.object({
 
 const Contacts = () => {
   const { toast } = useToast()
-  const [isLoading, setIsLoading] = useState(false)
+  const { isLoading, sendEmail } = useEmailSender({})
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: {
@@ -55,21 +55,8 @@ const Contacts = () => {
     message,
   }: z.infer<typeof contactFormSchema>) {
     try {
-      setIsLoading(true)
-      const res = await fetch('/api/contact', {
-        body: JSON.stringify({
-          email,
-          name,
-          subject,
-          message,
-        }),
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        method: 'POST',
-      })
-      const { error } = await res.json()
-      if (error) {
+      const error = await sendEmail(email, name, subject, message)
+      if (error !== null) {
         console.log(error)
         toast({
           title: 'Uh oh! Something went wrong.',
@@ -89,8 +76,6 @@ const Contacts = () => {
         description: 'There was a problem with your request.',
         variant: 'destructive',
       })
-    } finally {
-      setIsLoading(false)
     }
   }
 
