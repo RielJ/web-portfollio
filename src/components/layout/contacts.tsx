@@ -84,7 +84,7 @@ const Contacts = () => {
       <div className="overflow-hidden w-full">
         <h1 className="heading ">Contact</h1>
       </div>
-      <div className="grid grid-cols-5 w-full">
+      <div className="grid grid-cols-5 w-full px-2">
         <div className="col-span-5 space-y-5">
           <div className="flex justify-between">
             <div className="md:max-w-xl max-w-[15rem] text-left">
@@ -110,7 +110,7 @@ const Contacts = () => {
               onSubmit={form.handleSubmit(onSubmit)}
               className={cn(styles['contact-form'], 'flex flex-col space-y-5')}
             >
-              <div className="grid grid-cols-2 w-full space-x-5">
+              <div className="md:grid flex flex-col grid-cols-2 w-full gap-y-5 md:gap-y-0 md:space-x-5">
                 <div className="flex-1 space-y-5 col-span-1">
                   <div className={cn(styles['contact-input-group'])}>
                     <FormField
@@ -155,7 +155,7 @@ const Contacts = () => {
                     />
                   </div>
                 </div>
-                <div className="flex-1 flex space-x-3 col-span-1">
+                <div className="flex-1 flex col-span-1">
                   <div
                     className={cn(
                       styles['contact-input-group'],

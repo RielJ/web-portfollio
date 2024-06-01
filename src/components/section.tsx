@@ -13,7 +13,7 @@ const Section = ({ children, ...props }: TSectionProps) => {
     <section
       {...props}
       className={clsx(
-        'relative container w-full m-auto min-h-screen text-center max-w-7xl flex flex-col items-center justify-center snap-center gap-[3rem]',
+        'relative w-full m-auto min-h-screen text-center max-w-7xl flex flex-col items-center justify-center snap-center gap-[3rem]',
         props?.className
       )}
     >
